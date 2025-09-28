@@ -26,4 +26,4 @@ function Select({
   )
 }
 
-export default React.ref(Select)
+export default React.forwardRef(Select)

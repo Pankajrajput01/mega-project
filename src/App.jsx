@@ -29,14 +29,14 @@ function App() {
   
   
   return !loading ? (
-    <div className='w-screen min-h-screen flex flex-wrap content-between bg-gray-400'>
-      <div className='w-full items-center justify-center'>
-        <Header />
-        <main>
-        TODO:  <Outlet />
-        </main>
-        <Footer />
-      </div>
+    <div className='min-h-screen flex flex-col bg-gray-50 overflow-hidden'>
+      <Header />
+      <main className='flex-1'>
+        <div className='w-full h-full'>
+          <Outlet />
+        </div>
+      </main>
+      <Footer />
     </div>
   ) : null
 }
