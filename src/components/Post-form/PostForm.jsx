@@ -1,4 +1,4 @@
-import React , {useCallback} from 'react'
+import React , {useCallback , useId } from 'react'
 import { useForm } from 'react-hook-form'
 import {Button , Input , Select , RTE} from '../index'
 import service from './../../appwrite/config';
@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
+
 function PostForm({post}) {
     const { register , handleSubmit , watch , setValue , control , getValues } = useForm({
         defaultValues:{
             title: post?.title || '',
             slug: post?.slug || '',
-            content : post?. content || 'active',
+            content: post?.content || '',
             status: post?.status || 'active',
         }
     })
@@ -103,7 +104,12 @@ function PostForm({post}) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE 
+                    label="Content :" 
+                    name="content" 
+                    control={control}
+                    defaultValue={getValues("content")}
+                />
             </div>
             <div className="w-1/3 px-2">
                 <Input

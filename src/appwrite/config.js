@@ -17,17 +17,21 @@ export class Service {
   
   async createPost({title , slug , content , featuredImage , status , userId}){
     try {
+        // Appwrite collection expects the attribute named exactly 'Content'
+        const doc = {
+            title,
+            Content: content || '',
+            featuredImage,
+            status,
+            // include both variations to match collection schema if it expects different casing
+            userId: userId,
+            UserId: userId,
+        };
         return await this.databases.createDocument(
             conf.appwriteDatabaseId,
             conf.appwriteCollectionId,
             slug,
-            {
-                title,
-                content,
-                featuredImage,
-                status,
-                userId,
-            }
+            doc
         )
     } catch (error) {
         throw error
@@ -36,18 +40,22 @@ export class Service {
   
   async updatePost(slug, {title, content , featuredImage , status}){
     try {
+        const doc = {
+            title,
+            Content: content || '',
+            featuredImage,
+            status,
+        };
+
+        console.log('updatePost payload ->', doc);
+
         return await this.databases.updateDocument(
             conf.appwriteDatabaseId,
             conf.appwriteCollectionId,
             slug,
-            {
-                title,
-                content,
-                featuredImage,
-                status,
-            }
+            doc
         )
-        
+
     } catch (error) {
         console.log("update time error" , error);
         
