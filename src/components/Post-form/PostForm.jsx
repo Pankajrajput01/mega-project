@@ -1,7 +1,7 @@
 import React , {useCallback} from 'react'
 import { useForm } from 'react-hook-form'
 import {Button , Input , Select , RTE} from '../index'
-import service, { Service } from './../../appwrite/config';
+import service from './../../appwrite/config';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -16,7 +16,7 @@ function PostForm({post}) {
         }
     })
 
-    const navigate = useNavigate()
+    const navigate = useNavigate()  
 
     const userData = useSelector(state => state.auth.userData)
 
@@ -59,12 +59,20 @@ function PostForm({post}) {
     }
 
     const slugTransform = useCallback((value) => {
-        if(value && typeof value === 'string'){
-            return value.trim().toLowerCase().replace(/^[a-zA-Z\d\s]+/g, '-').replace(/\s/g,'-')
-        } else {
-            return ''
+        if(value && typeof value === 'string') {
+            // First, convert to lowercase and trim
+            const text = value.trim().toLowerCase();
+            // Replace spaces and special characters with hyphens
+            const slug = text
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')    
+                .replace(/-+/g, '-');  
+            
+            // Ensure slug starts with a letter or number
+            return /^[a-z0-9]/.test(slug) ? slug : `p-${slug}`;
         }
-    },[])
+        return '';
+    }, [])
 
     React.useEffect(()=>{
         const subscription = watch((value , {name})=> {
