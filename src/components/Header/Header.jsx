@@ -37,20 +37,22 @@ function Header() {
   ]
 
   return (
-    <header className='py-3 shadow bg-gray-800 w-full'>
+    <header className='w-full border-b' style={{background: 'linear-gradient(90deg, rgba(6,182,212,0.06), transparent)'}}>
       <Container>
-        <nav className='flex items-center justify-between'>
-          <div className='flex items-center'>
-            <Link to='/'>
-              <Logo width='70px'/>
+        <nav className='flex items-center justify-between py-4'>
+          <div className='flex items-center gap-4'>
+            <Link to='/' className='flex items-center gap-3'>
+              <Logo />
+              <span className='text-xl font-semibold text-[var(--text)]'>DevUI</span>
             </Link>
           </div>
-          <ul className='flex items-center gap-4'>
+
+          <ul className='flex items-center gap-3'>
             {navItems.map((items) => items.active ? (
             <li key={items.name}>
               <button
                 onClick={() => navigate(items.slug)}
-                className='inline-block px-4 py-2 text-white font-medium'
+                className='inline-block px-4 py-2 text-[var(--text)] bg-transparent hover:bg-[var(--glass)] rounded-lg'
                 >{items.name}</button>
             </li>) : null
             )}

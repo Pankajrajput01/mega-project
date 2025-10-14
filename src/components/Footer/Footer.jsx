@@ -4,27 +4,27 @@ import Logo from '../Logo'
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12 w-full">
+    <footer className="w-full mt-12 py-12" style={{background: 'linear-gradient(180deg, rgba(14,165,164,0.03), transparent)'}}>
             <div className="w-full px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
                         <div className="mb-4">
-                            <Logo width="120px" />
+                            <Logo />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-sm text-[var(--muted)]">
                                 &copy; {new Date().getFullYear()} DevUI. All Rights Reserved.
                             </p>
                         </div>
                     </div>
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 text-white">
+                        <h3 className="text-lg font-semibold mb-4 text-[var(--text)]">
                             Company
                         </h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    className="text-gray-400"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Features
@@ -32,7 +32,7 @@ function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Pricing
@@ -40,7 +40,7 @@ function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Affiliate Program
@@ -49,13 +49,13 @@ function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 text-white">
+                        <h3 className="text-lg font-semibold mb-4 text-[var(--text)]">
                             Support
                         </h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Help Center
@@ -63,7 +63,7 @@ function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Contact Us
@@ -71,7 +71,7 @@ function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Community
@@ -80,13 +80,13 @@ function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 text-white">
+                        <h3 className="text-lg font-semibold mb-4 text-[var(--text)]">
                             Legal
                         </h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Privacy Policy
@@ -94,7 +94,7 @@ function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    className="text-gray-400 hover:text-white transition-colors"
+                                    className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                                     to="/"
                                 >
                                     Terms of Service

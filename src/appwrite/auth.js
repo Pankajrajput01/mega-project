@@ -39,27 +39,16 @@ export class Authservice {
     }
   }
 
-  // async getCurrentUser() {
-  //       try {
-  //           return await this.account.get();
-  //       } catch (error) {
-  //           console.log("Appwrite serive :: getCurrentUser :: error", error);
-  //       }
-
-  //       return null;
-  //   }
-
   async getCurrentUser() {
-    try {
-      return await this.account.get();
-    } catch (error) {
-      if (error.code === 401) {
-        console.warn("No active session. Please login first.");
+        try {
+            return await this.account.get();
+        } catch (error) {
+            console.log("Appwrite serive :: getCurrentUser :: error", error);
+        }
+
         return null;
-      }
-      throw error;
     }
-  }
+
 
   async logout() {
     try {

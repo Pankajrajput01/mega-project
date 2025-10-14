@@ -33,9 +33,9 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8">
+        <div className="py-8 bg-cyan-900 ">
             <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2  bg-blue-700">
                     <img
                         src={Service.getFilePreview(post.featuredImage)}
                         alt={post.title}
@@ -55,12 +55,12 @@ export default function Post() {
                         </div>
                     )}
                 </div>
-                <div className="w-full mb-6">
+                <div className="w-full mb-6 bg-gray-700">
                     <h1 className="text-2xl font-bold">{post.title}</h1>
                 </div>
-                <div className="browser-css">
-                    {parse(post.content)}
-                    </div>
+                <div className="browser-css bg-green-700">
+                    {parse(post.Content)}    
+                </div>
             </Container>
         </div>
     ) : null;

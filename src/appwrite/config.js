@@ -15,28 +15,27 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
   
-  async createPost({title , slug , content , featuredImage , status , userId}){
-    try {
-        // Appwrite collection expects the attribute named exactly 'Content'
-        const doc = {
-            title,
-            Content: content || '',
-            featuredImage,
-            status,
-            // include both variations to match collection schema if it expects different casing
-            userId: userId,
-            UserId: userId,
-        };
-        return await this.databases.createDocument(
-            conf.appwriteDatabaseId,
-            conf.appwriteCollectionId,
-            slug,
-            doc
-        )
-    } catch (error) {
-        throw error
-    }
+  async createPost({ title, slug, content, featuredImage, status, userId }) {
+  try {
+    const doc = {
+      title,
+      Content: content || '', 
+      featuredImage,
+      status,
+      Userid: userId, 
+    };
+
+    return await this.databases.createDocument(
+      conf.appwriteDatabaseId,
+      conf.appwriteCollectionId,
+      slug,
+      doc
+    );
+  } catch (error) {
+    throw error;
   }
+}
+
   
   async updatePost(slug, {title, content , featuredImage , status}){
     try {
