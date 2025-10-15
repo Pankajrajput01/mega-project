@@ -8,6 +8,7 @@ function Logout() {
     const logoutHandler = ()=>{
         authservice.logout().then(() => {
             Dispatch(logout())
+            window.location.reload();
         })
     }
   return (

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import authService from './appwrite/auth';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet , useNavigate } from 'react-router-dom';
 
 
 
@@ -13,6 +13,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
   const [loading , serLoading] = useState(true)
   const dispatch = useDispatch()
+  const Navigate = useNavigate();
 
   useEffect(() => {
     authService.getCurrentUser()
@@ -22,6 +23,8 @@ function App() {
       }
       else{
         dispatch(logout())
+        Navigate('/')
+
       }
     })
     .finally(()=> serLoading(false))

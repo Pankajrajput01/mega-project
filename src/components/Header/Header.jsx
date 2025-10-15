@@ -42,7 +42,7 @@ function Header() {
         <nav className='flex items-center justify-between py-4'>
           <div className='flex items-center gap-4'>
             <Link to='/' className='flex items-center gap-3'>
-              <Logo />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzNUmHtk1gIkS9j5GiaXOvJbbRZxfrpTlPhA&s" alt="brand" className="w-10 h-10 rounded-md object-cover" />
               <span className='text-xl font-semibold text-[var(--text)]'>DevUI</span>
             </Link>
           </div>

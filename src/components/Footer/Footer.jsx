@@ -8,8 +8,9 @@ function Footer() {
             <div className="w-full px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
-                        <div className="mb-4">
-                            <Logo />
+                        <div className="mb-4 flex items-center gap-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzNUmHtk1gIkS9j5GiaXOvJbbRZxfrpTlPhA&s" alt="brand" className="w-10 h-10 rounded-md object-cover" />
+                            <span className="font-semibold text-[var(--text)]">DevUI</span>
                         </div>
                         <div>
                             <p className="text-sm text-[var(--muted)]">
