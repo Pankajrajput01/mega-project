@@ -1,6 +1,6 @@
 import { useState , useEffect } from 'react'
 import './App.css'
-import { login , logout } from './store/authslice';
+import { login , logout } from './store/authSlice';
 import { useDispatch } from 'react-redux';
 import authService from './appwrite/auth';
 import Header from './components/Header/Header';
