@@ -50,7 +50,7 @@ function PostForm({post}) {
                 data.featuredImage = fileId
                 const dbPost = await service.createPost(
                     {...data,
-                    userId : userData.$id,}
+                    userid : userData.$id,}
                 ) 
                 if (dbPost){
                     navigate(`/post/${dbPost.$id}`)
