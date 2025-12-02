@@ -37,22 +37,22 @@ function Header() {
   ]
 
   return (
-    <header className='w-full border-b' style={{background: 'linear-gradient(90deg, rgba(6,182,212,0.06), transparent)'}}>
+    <header className='w-full border-b border-blue-100 sticky top-0 z-40 backdrop-blur-sm' style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(240,249,255,0.95))'}}>
       <Container>
-        <nav className='flex items-center justify-between py-4'>
+        <nav className='flex items-center justify-between py-3'>
           <div className='flex items-center gap-4'>
-            <Link to='/' className='flex items-center gap-3'>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzNUmHtk1gIkS9j5GiaXOvJbbRZxfrpTlPhA&s" alt="brand" className="w-10 h-10 rounded-md object-cover" />
-              <span className='text-xl font-semibold text-[var(--text)]'>DevUI</span>
+            <Link to='/' className='flex items-center gap-2 hover:opacity-80 transition-opacity'>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzNUmHtk1gIkS9j5GiaXOvJbbRZxfrpTlPhA&s" alt="brand" className="w-10 h-10 rounded-lg object-cover shadow-sm" />
+              <span className='text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent'>DevUI</span>
             </Link>
           </div>
 
-          <ul className='flex items-center gap-3'>
+          <ul className='flex items-center gap-1'>
             {navItems.map((items) => items.active ? (
             <li key={items.name}>
               <button
                 onClick={() => navigate(items.slug)}
-                className='inline-block px-4 py-2 text-[var(--text)] bg-transparent hover:bg-[var(--glass)] rounded-lg'
+                className='px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 active:bg-blue-100'
                 >{items.name}</button>
             </li>) : null
             )}

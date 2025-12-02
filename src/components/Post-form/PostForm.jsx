@@ -37,7 +37,6 @@ function PostForm({post}) {
 
                 }
             )
-
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
             }
@@ -50,12 +49,11 @@ function PostForm({post}) {
                 data.featuredImage = fileId
                 const dbPost = await service.createPost(
                     {...data,
-                    userid : userData.$id,}
+                    Userid : userData.$id,}
                 ) 
                 if (dbPost){
                     navigate(`/post/${dbPost.$id}`)
-                }
-                
+                }        
             }
         }
     }
@@ -88,8 +86,8 @@ function PostForm({post}) {
     },[watch , slugTransform, setValue])
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap gap-4">
+            <div className="flex-1 min-w-96 px-2">
                 <Input
                     label="Title :"
                     placeholder="Title"
@@ -112,32 +110,33 @@ function PostForm({post}) {
                     defaultValue={getValues("content")}
                 />
             </div>
-            <div className="w-1/3 px-2">
-                <Input
-                    label="Featured Image :"
-                    type="file"
-                    className="mb-4"
-                    accept="image/png, image/jpg, image/jpeg, image/gif"
-                    {...register("image", { required: !post })}
-                />
-                {post && (
-                    <div className="w-full mb-4">
-                        <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-lg"
-                        />
-                    </div>
-                )}
-                <Select
-                    options={["active", "inactive"]}
-                    label="Status"
-                    className="mb-4"
-                    {...register("status", { required: true })}
-                />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
-                </Button>
+            <div className="w-full lg:w-1/3 px-2">
+                <div className="space-y-4">
+                    <Input
+                        label="Featured Image :"
+                        type="file"
+                        accept="image/png, image/jpg, image/jpeg, image/gif"
+                        {...register("image", { required: !post })}
+                    />
+                    {post && (
+                        <div className="w-full">
+                            <p className="text-sm font-semibold text-slate-700 mb-2">Current Image</p>
+                            <img
+                                src={service.getFilePreview(post.featuredImage)}
+                                alt={post.title}
+                                className="rounded-lg w-full object-cover shadow-md border border-blue-200"
+                            />
+                        </div>
+                    )}
+                    <Select
+                        options={["active", "inactive"]}
+                        label="Status"
+                        {...register("status", { required: true })}
+                    />
+                    <Button type="submit" bgClass={post ? "bg-green-600 hover:bg-green-700" : "bg-blue-600 hover:bg-blue-700"} className="w-full">
+                        {post ? "Update" : "Submit"}
+                    </Button>
+                </div>
             </div>
         </form>
   )

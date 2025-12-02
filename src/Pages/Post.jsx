@@ -13,8 +13,8 @@ export default function Post() {
   const userData = useSelector((state) => state.auth.userData);
 
  
-  console.log(userData.$id , "this is userData");
-  console.log(post);
+  // console.log(userData.$id , "this is userData");
+  // console.log(post);
   
 
   const isAuthor = post && userData ? post.Userid === userData.$id : console.log("this id not match");
